@@ -1,0 +1,26 @@
+{
+  "id": "modern-living",
+  "slug": "modern-living",
+  "title": "Modern Living Room Redesign",
+  "description": "A complete transformation of a dated living space into a contemporary oasis. This project showcases how thoughtful design choices, minimal color palette, and strategic lighting can completely reinvent a residential space.",
+  "shortDescription": "Contemporary living room with clean lines and open space.",
+  "category": "Residential",
+  "images": [
+    {
+      "url": "/content/projects/modern-living/image-1.jpg",
+      "alt": "Modern living room overview",
+      "caption": "Before transformation"
+    },
+    {
+      "url": "/content/projects/modern-living/image-2.jpg",
+      "alt": "Modern living room detail",
+      "caption": "After redesign"
+    }
+  ],
+  "heroImage": "/content/projects/modern-living/hero.jpg",
+  "completionDate": "2024-01-15",
+  "location": "Downtown Lofts, New York",
+  "client": "Jane & John Smith",
+  "featured": true,
+  "details": "This project involved a complete redesign with new furniture selection, updated lighting fixtures, and a modern color palette featuring neutral tones with accent colors."
+}
