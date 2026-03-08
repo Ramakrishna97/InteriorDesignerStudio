@@ -1,0 +1,19 @@
+{
+  "id": "2026-03-08-2bhk",
+  "slug": "2bhk",
+  "title": "2bhk",
+  "description": "Kitchen",
+  "shortDescription": "Kitchen",
+  "category": "Residential",
+  "completionDate": "2026-03-08",
+  "location": "Hyderabad",
+  "client": "Teja",
+  "featured": false,
+  "images": [
+    {
+      "url": "/content/projects/2bhk/image-1.jpg",
+      "alt": "Project image 1"
+    }
+  ],
+  "heroImage": "/content/projects/2bhk/hero.jpg"
+}
