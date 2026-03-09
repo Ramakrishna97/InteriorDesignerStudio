@@ -3,6 +3,7 @@ import { createFooter } from './components/footer';
 import { createHero } from './components/hero';
 import { createGallery } from './components/gallery';
 import type { ProjectMetadata } from './utils/types';
+import './styles/global.css';
 
 // Generate a colorful SVG placeholder that includes the project title
 function escapeXml(text: string) {
