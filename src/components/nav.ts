@@ -18,9 +18,9 @@ export function createNav(): HTMLElement {
       </button>
       <ul class="nav__menu" role="menu">
         <li role="menuitem"><a href="/">Home</a></li>
-        <li role="menuitem"><a href="/portfolio.html">Portfolio</a></li>
-        <li role="menuitem"><a href="/about.html">About</a></li>
-        <li role="menuitem"><a href="/contact.html">Contact</a></li>
+        <li role="menuitem"><a href="/InteriorDesignerStudio/portfolio.html">Portfolio</a></li>
+        <li role="menuitem"><a href="/InteriorDesignerStudio/about.html">About</a></li>
+        <li role="menuitem"><a href="/InteriorDesignerStudio/contact.html">Contact</a></li>
       </ul>
     </div>
   `;
