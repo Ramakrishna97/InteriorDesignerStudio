@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const path = window.location.pathname;
+    const base = '/InteriorDesignerStudio/';
+
+    if (path !== base && path !== base + 'index.html') {
+      const page = path.replace(base, '').replace('.html', '');
+      window.location.replace(base + '#' + page);
+    }
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
