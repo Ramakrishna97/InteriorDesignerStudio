@@ -17,27 +17,38 @@ jobs:
         node-version: [18.x, 20.x]
 
     steps:
+      # 1. Checkout the repo with full history (needed to avoid gh-pages conflicts)
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # 2. Use Node.js
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # 4. Run linter (warnings only, don't fail)
       - name: Run linter
         run: npm run lint
         continue-on-error: true
 
+      # 5. Build project
       - name: Build project
         run: npm run build
 
+      # 6. Deploy to GitHub Pages (force push to avoid conflicts)
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          force_orphan: true        # ⚡ Force push even if gh-pages is ahead
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
