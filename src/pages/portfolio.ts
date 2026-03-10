@@ -4,8 +4,8 @@ import { createHero } from '../components/hero';
 import { createGallery } from '../components/gallery';
 import type { ProjectMetadata } from '../utils/types';
 
-// Placeholder in case images are missing
-function makePlaceholder(title = 'No image', w = 1200, h = 800) {
+// ---------- Placeholder generator ----------
+function makePlaceholder(title = 'No image', w = 1200, h = 800): string {
   const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'>
     <rect width='100%' height='100%' fill='#ddd'/>
     <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='#333'>${title}</text>
@@ -13,23 +13,25 @@ function makePlaceholder(title = 'No image', w = 1200, h = 800) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
 
-// Load all projects dynamically
+// ---------- Load all projects ----------
 async function fetchAllProjects(): Promise<ProjectMetadata[]> {
   try {
-    // 1. Load the projects index
-    const indexRes = await fetch('./content/projects/index.json');
+    // Load index.json from public
+    const indexRes = await fetch(`${import.meta.env.BASE_URL}content/projects/index.json`);
+    if (!indexRes.ok) throw new Error('Failed to load projects index');
     const projectFolders: string[] = await indexRes.json();
 
-    // 2. Load each folder's project.json
+    // Load metadata.json for each project
     const projects = await Promise.all(
-      projectFolders.map(async folder => {
-        const res = await fetch(`./content/projects/${folder}/metadata.json`);
-        const project = await res.json() as ProjectMetadata;
+      projectFolders.map(async (folder) => {
+        const res = await fetch(`${import.meta.env.BASE_URL}content/projects/${folder}/metadata.json`);
+        if (!res.ok) throw new Error(`Failed to load project: ${folder}`);
+        const project = (await res.json()) as ProjectMetadata;
 
-        // Use placeholder if hero image missing
+        // Hero image placeholder
         project.heroImage = project.heroImage || makePlaceholder(project.title);
 
-        // Map images array
+        // Map images
         if (project.images) {
           project.images = project.images.map(img => ({
             url: img.url || makePlaceholder(img.alt || project.title),
@@ -54,19 +56,25 @@ async function fetchAllProjects(): Promise<ProjectMetadata[]> {
   }
 }
 
+// ---------- Render Portfolio Page ----------
 async function render(): Promise<void> {
   const app = document.getElementById('app');
   if (!app) return;
 
+  // Clear existing content
   app.innerHTML = '';
+
+  // Navbar
   app.appendChild(createNav());
 
+  // Hero Section
   const hero = createHero({
     title: 'Our Portfolio',
     subtitle: 'Explore our latest projects and designs',
   });
   app.appendChild(hero);
 
+  // Portfolio Section
   const portfolioSection = document.createElement('section');
   portfolioSection.className = 'portfolio-section';
 
@@ -75,11 +83,16 @@ async function render(): Promise<void> {
   title.textContent = 'All Projects';
   portfolioSection.appendChild(title);
 
+  // Fetch and render projects
   const allProjects = await fetchAllProjects();
-  portfolioSection.appendChild(createGallery(allProjects));
+  const gallery = createGallery(allProjects);
+  portfolioSection.appendChild(gallery);
 
   app.appendChild(portfolioSection);
+
+  // Footer
   app.appendChild(createFooter());
 }
 
+// ---------- Run ----------
 render();
