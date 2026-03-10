@@ -66,7 +66,7 @@ function render(): void {
     subtitle: 'Creating beautiful spaces that inspire',
     backgroundImage: sampleProjects[0]?.heroImage || makePlaceholder('Welcome to Interior Design'),
     ctaText: 'View Portfolio',
-    ctaLink: '/portfolio.html',
+    ctaLink: './portfolio.html',
   });
   app.appendChild(hero);
 

@@ -7,17 +7,17 @@
   "category": "Residential",
   "images": [
     {
-      "url": "/content/projects/modern-living/image-1.jpg",
+      "url": "./content/projects/modern-living/image-1.jpg",
       "alt": "Modern living room overview",
       "caption": "Before transformation"
     },
     {
-      "url": "/content/projects/modern-living/image-2.jpg",
+      "url": "./content/projects/modern-living/image-2.jpg",
       "alt": "Modern living room detail",
       "caption": "After redesign"
     }
   ],
-  "heroImage": "/content/projects/modern-living/hero.jpg",
+  "heroImage": "./content/projects/modern-living/hero.jpg",
   "completionDate": "2024-01-15",
   "location": "Downtown Lofts, New York",
   "client": "Jane & John Smith",

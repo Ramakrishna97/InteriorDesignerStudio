@@ -1,15 +1,25 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-  root: '.',                        // ✅ Use project root so index.html is outside src
-  base: '/InteriorDesignerStudio/', // ✅ GitHub Pages base path
+  root: '.',
+  base: '/InteriorDesignerStudio/',
   build: {
     target: 'ES2020',
-    outDir: 'dist',                 // ✅ Build output folder
-    emptyOutDir: true               // ✅ Clear dist before each build
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        portfolio: resolve(__dirname, 'portfolio.html'),
+        about: resolve(__dirname, 'about.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        project: resolve(__dirname, 'project.html')
+      }
+    }
   },
   server: {
     port: 5173,
     open: true
   }
-});
+})

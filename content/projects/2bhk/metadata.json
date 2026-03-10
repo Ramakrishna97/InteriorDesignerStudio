@@ -11,9 +11,13 @@
   "featured": false,
   "images": [
     {
-      "url": "/content/projects/2bhk/image-1.jpg",
+      "url": "./content/projects/2bhk/image-1.jpg",
+      "alt": "Project image 1"
+    },
+    {
+      "url": "./content/projects/2bhk/image-1.jpg",
       "alt": "Project image 1"
     }
   ],
-  "heroImage": "/content/projects/2bhk/hero.jpg"
+  "heroImage": "./content/projects/2bhk/hero.jpg"
 }

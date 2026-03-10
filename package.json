@@ -11,6 +11,7 @@
     "format": "prettier --write \"src/**/*.{ts,css,html,json}\""
   },
   "devDependencies": {
+    "@types/node": "^25.4.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^8.57.1",

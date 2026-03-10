@@ -21,7 +21,7 @@ class AdminInterface {
 
   private async loadConfig(): Promise<void> {
     try {
-      const response = await fetch('/admin-config.json');
+      const response = await fetch('./admin-config.json');
       if (!response.ok) {
         throw new Error('Failed to load admin configuration');
       }
@@ -157,7 +157,7 @@ class AdminInterface {
 
     try {
       const slug = generateSlug(input.title || '');
-      const basePath = `content/projects/${slug}`;
+      const basePath = `./content/projects/${slug}`;
 
       const hero = await this.readFileAsBase64(input.heroImageFile!);
 

@@ -41,7 +41,7 @@ export function createProjectCard(project: ProjectMetadata): HTMLElement {
       <span class="project-card__category">${project.category}</span>
       <h3 class="project-card__title">${project.title}</h3>
       <p class="project-card__description">${project.shortDescription}</p>
-      <a href="/project.html?id=${project.id}" class="project-card__link">View Project →</a>
+      <a href="./project.html?id=${project.id}" class="project-card__link">View Project →</a>
     </div>
   `;
 

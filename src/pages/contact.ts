@@ -6,8 +6,11 @@ function render(): void {
   if (!app) return;
 
   app.innerHTML = '';
+
+  // Navbar
   app.appendChild(createNav());
 
+  // Contact Section
   const contactSection = document.createElement('section');
   contactSection.className = 'contact-section';
 
@@ -24,36 +27,46 @@ function render(): void {
             <label for="name">Name *</label>
             <input type="text" id="name" name="name" required />
           </div>
+
           <div class="form-group">
             <label for="email">Email *</label>
             <input type="email" id="email" name="email" required />
           </div>
+
           <div class="form-group">
             <label for="phone">Phone</label>
             <input type="tel" id="phone" name="phone" />
           </div>
+
           <div class="form-group">
             <label for="subject">Subject *</label>
             <input type="text" id="subject" name="subject" required />
           </div>
+
           <div class="form-group">
             <label for="message">Message *</label>
             <textarea id="message" name="message" rows="6" required></textarea>
           </div>
+
           <button type="submit" class="btn btn--primary">Send Message</button>
         </form>
+
         <div id="form-status"></div>
       </div>
+
       <div class="contact-info">
         <h2>Contact Information</h2>
+
         <div class="info-block">
           <h3>Email</h3>
           <p><a href="mailto:info@interiordesigner.com">info@interiordesigner.com</a></p>
         </div>
+
         <div class="info-block">
           <h3>Phone</h3>
           <p><a href="tel:+1234567890">(123) 456-7890</a></p>
         </div>
+
         <div class="info-block">
           <h3>Office Location</h3>
           <p>
@@ -63,6 +76,7 @@ function render(): void {
             USA
           </p>
         </div>
+
         <div class="info-block">
           <h3>Hours</h3>
           <p>
@@ -71,23 +85,31 @@ function render(): void {
             Sunday: Closed
           </p>
         </div>
+
       </div>
     </div>
   `;
 
-  container.appendChild(container);
+  // FIX: append container to section
+  contactSection.appendChild(container);
+
+  // Append section to app
   app.appendChild(contactSection);
+
+  // Footer
   app.appendChild(createFooter());
 
   // Form handling
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const statusDiv = document.getElementById('form-status') as HTMLElement;
 
-  if (form) {
+  if (form && statusDiv) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
       statusDiv.textContent = 'Thank you! Your message has been received.';
       statusDiv.className = 'form-status form-status--success';
+
       form.reset();
     });
   }

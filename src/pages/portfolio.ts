@@ -17,13 +17,13 @@ function makePlaceholder(title = 'No image', w = 1200, h = 800) {
 async function fetchAllProjects(): Promise<ProjectMetadata[]> {
   try {
     // 1. Load the projects index
-    const indexRes = await fetch('/content/projects/projects-index.json');
+    const indexRes = await fetch('./content/projects/index.json');
     const projectFolders: string[] = await indexRes.json();
 
     // 2. Load each folder's project.json
     const projects = await Promise.all(
       projectFolders.map(async folder => {
-        const res = await fetch(`/content/projects/${folder}/project.json`);
+        const res = await fetch(`./content/projects/${folder}/metadata.json`);
         const project = await res.json() as ProjectMetadata;
 
         // Use placeholder if hero image missing
