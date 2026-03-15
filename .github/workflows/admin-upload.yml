@@ -1,0 +1,79 @@
+name: Admin Upload
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [admin-upload]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Parse upload payload
+        id: parse_payload
+        run: |
+          echo "${{ github.event.client_payload }}" > payload.json
+          node -e "
+            const fs = require('fs');
+            const payload = JSON.parse(fs.readFileSync('payload.json'));
+            fs.writeFileSync('slug.txt', payload.slug);
+            fs.writeFileSync('title.txt', payload.title);
+            fs.writeFileSync('category.txt', payload.category);
+            fs.writeFileSync('completionDate.txt', payload.completionDate);
+          "
+
+      - name: Create project folder
+        run: |
+          SLUG=$(cat slug.txt)
+          mkdir -p public/content/projects/$SLUG
+          echo "Created folder: $SLUG"
+
+      - name: Save hero image
+        run: |
+          SLUG=$(cat slug.txt)
+          echo "${{ github.event.client_payload.heroImage }}" | base64 -d > public/content/projects/$SLUG/hero.jpg
+
+      - name: Save project images
+        run: |
+          SLUG=$(cat slug.txt)
+          for i in $(seq 0 $((${{ github.event.client_payload.images.length }} - 1))); do
+            IMG_NAME="image-$((i+1)).jpg"
+            IMG_DATA="${{ github.event.client_payload.images[i].data }}"
+            echo "$IMG_DATA" | base64 -d > public/content/projects/$SLUG/$IMG_NAME
+          done
+
+      - name: Save metadata.json
+        run: |
+          SLUG=$(cat slug.txt)
+          cat <<EOF > public/content/projects/$SLUG/metadata.json
+          ${{ toJSON(github.event.client_payload) }}
+          EOF
+
+      - name: Update index.json
+        run: |
+          INDEX_FILE=public/content/projects/index.json
+          mkdir -p public/content/projects
+          if [ -f $INDEX_FILE ]; then
+            INDEX=$(cat $INDEX_FILE)
+          else
+            INDEX="[]"
+          fi
+          SLUG=$(cat slug.txt)
+          UPDATED_INDEX=$(echo $INDEX | jq --arg slug "$SLUG" '. + [$slug] | unique')
+          echo "$UPDATED_INDEX" > $INDEX_FILE
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add project: $(cat title.txt)"
+          git push
