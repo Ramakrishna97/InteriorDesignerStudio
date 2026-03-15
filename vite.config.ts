@@ -14,7 +14,8 @@ export default defineConfig({
         portfolio: resolve(__dirname, 'portfolio.html'),
         about: resolve(__dirname, 'about.html'),
         contact: resolve(__dirname, 'contact.html'),
-        project: resolve(__dirname, 'project.html')
+        project: resolve(__dirname, 'project.html'),
+        admin: resolve(__dirname, 'admin.html')
       }
     }
   },

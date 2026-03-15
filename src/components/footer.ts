@@ -13,10 +13,11 @@ export function createFooter(): HTMLElement {
         <div class="footer__section">
           <h3>Quick Links</h3>
           <ul role="list">
-            <li><a href="/">Home</a></li>
-            <li><a href="/portfolio.html">Portfolio</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/InteriorDesignerStudio/">Home</a></li>
+            <li><a href="/InteriorDesignerStudio/portfolio.html">Portfolio</a></li>
+            <li><a href="/InteriorDesignerStudio/about.html">About</a></li>
+            <li><a href="/InteriorDesignerStudio/contact.html">Contact</a></li>
+            <li><a href="/InteriorDesignerStudio/admin.html">Login As Admin</a></li>
           </ul>
         </div>
         <div class="footer__section">

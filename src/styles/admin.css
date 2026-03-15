@@ -1,43 +1,71 @@
-/* Admin Page Styles */
+
+/* ========================================
+   Admin Page Styles - Multi-color / Modern
+   ======================================== */
 
 .admin-container {
   max-width: 600px;
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .admin-header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
+  position: relative;
 }
 
 .admin-header h1 {
   margin-bottom: var(--spacing-sm);
+  font-size: 2rem;
+  background: linear-gradient(90deg, var(--palette-1), var(--palette-2), var(--palette-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .admin-subtitle {
   color: var(--color-text-light);
   font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .admin-header .btn {
   position: absolute;
   top: var(--spacing-lg);
   right: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-image: linear-gradient(90deg, var(--palette-2), var(--palette-3), var(--palette-4));
+  color: white;
+  box-shadow: var(--glow);
+  transition: var(--transition);
+}
+
+.admin-header .btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  opacity: 0.95;
 }
 
 /* Security Warning */
 
 .security-warning {
-  background: #fff3cd;
+  background: linear-gradient(135deg, #fff8e1, #ffe0b2);
   border: 1px solid #ffc107;
   border-radius: var(--radius);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+  color: #856404;
+  font-weight: 500;
 }
 
 .security-warning h2 {
-  color: #ff6b6b;
+  color: #d9534f;
   margin-top: 0;
   font-size: 1.25rem;
 }
@@ -49,40 +77,49 @@
 
 .security-warning li {
   padding: 8px 0;
-  padding-left: 24px;
+  padding-left: 28px;
   position: relative;
   margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .security-warning li::before {
   content: '⚠';
   position: absolute;
   left: 0;
+  font-size: 1rem;
 }
 
 /* Form Sections */
 
 .form-section {
-  background: var(--color-accent);
+  background: linear-gradient(180deg, var(--palette-5) 0%, var(--color-accent) 100%);
   padding: var(--spacing-lg);
   border-radius: var(--radius);
   margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow);
 }
 
 .form-section h2 {
   margin-top: 0;
   font-size: 1.5rem;
   margin-bottom: var(--spacing-lg);
+  color: var(--palette-3);
 }
+
+/* Form Groups */
 
 .form-group {
   margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
   display: block;
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
 }
 
 .form-group input,
@@ -94,14 +131,15 @@
   border-radius: var(--radius);
   font-family: var(--font-primary);
   font-size: 1rem;
+  transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+  border-color: var(--palette-2);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
 }
 
 .form-group small {
@@ -112,7 +150,34 @@
 }
 
 .form-group small a {
-  color: var(--color-secondary);
+  color: var(--palette-2);
+}
+
+/* Buttons inside forms */
+
+#project-form button[type='submit'],
+button {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, var(--palette-1), var(--palette-2), var(--palette-3));
+  color: white;
+  box-shadow: var(--glow);
+  transition: var(--transition);
+}
+
+#project-form button[type='submit']:hover {
+  transform: translateY(-2px) scale(1.02);
+  opacity: 0.95;
+}
+
+#project-form button[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Status Messages */
@@ -142,15 +207,6 @@
   color: #c62828;
 }
 
-.status p {
-  margin: 8px 0;
-}
-
-.status small {
-  display: block;
-  font-size: 0.85rem;
-}
-
 /* Form Errors */
 
 .form-errors {
@@ -170,17 +226,6 @@
 .form-errors p {
   margin: 6px 0;
   font-size: 0.95rem;
-}
-
-/* Upload Progress */
-
-#project-form {
-  position: relative;
-}
-
-#project-form button[type='submit']:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }
 
 /* Responsive */
