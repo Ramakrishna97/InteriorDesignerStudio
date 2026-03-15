@@ -1,0 +1,22 @@
+{
+  "slug": "3-bhk-apartment-renovation",
+  "title": "3 BHK apartment  Renovation",
+  "category": "Residential",
+  "shortDescription": "A contemporary 3 BHK apartment with minimalistic design",
+  "description": "This project involved a complete interior design of a 3-bedroom apartment. We focused on open spaces, natural light, and modern furniture to create a comfortable and stylish living environment. The kitchen, living room, and bedrooms were designed with smart storage solutions and premium finishes.",
+  "completionDate": "2026-03-15",
+  "location": "Hyderabad",
+  "client": "Teja",
+  "heroImageFile": {},
+  "images": [
+    {
+      "url": "./content/projects/3-bhk-apartment-renovation/image-1.jpg",
+      "alt": "Image 1"
+    },
+    {
+      "url": "./content/projects/3-bhk-apartment-renovation/image-2.jpg",
+      "alt": "Image 2"
+    }
+  ],
+  "heroImage": "./content/projects/3-bhk-apartment-renovation/hero.jpg"
+}
