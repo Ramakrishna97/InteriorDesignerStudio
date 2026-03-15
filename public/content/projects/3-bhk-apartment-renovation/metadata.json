@@ -10,13 +10,13 @@
   "heroImageFile": {},
   "images": [
     {
-      "url": "public/content/projects/3-bhk-apartment-renovation/image-1.jpg",
+      "url": "./content/projects/3-bhk-apartment-renovation/image-1.jpg",
       "alt": "Image 1"
     },
     {
-      "url": "public/content/projects/3-bhk-apartment-renovation/image-2.jpg",
+      "url": "./content/projects/3-bhk-apartment-renovation/image-2.jpg",
       "alt": "Image 2"
     }
   ],
-  "heroImage": "public/content/projects/3-bhk-apartment-renovation/hero.jpg"
+  "heroImage": "./content/projects/3-bhk-apartment-renovation/hero.jpg"
 }
