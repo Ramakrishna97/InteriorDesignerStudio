@@ -1,17 +1,22 @@
 {
   "slug": "3-bhk-apartment-renovation",
-  "title": "3 BHK Apartment Renovation",
+  "title": "3 BHK apartment  Renovation",
   "category": "Residential",
-  "description": "This project involved transforming a 3 BHK apartment in Bangalore into a sleek, contemporary living space with open-plan living areas, a minimalist kitchen, and custom furniture solutions.",
-  "shortDescription": "A modern, minimalist 3 BHK design with open layouts.",
+  "shortDescription": "A contemporary 3 BHK apartment with minimalistic design",
+  "description": "This project involved a complete interior design of a 3-bedroom apartment. We focused on open spaces, natural light, and modern furniture to create a comfortable and stylish living environment. The kitchen, living room, and bedrooms were designed with smart storage solutions and premium finishes.",
   "completionDate": "2026-03-15",
   "location": "Hyderabad",
   "client": "Teja",
-  "heroImage": "/InteriorDesignerStudio/public/content/projects/3-bhk-apartment-renovation/hero.jpg",
+  "heroImageFile": {},
   "images": [
     {
-      "url": "/InteriorDesignerStudio/public/content/projects/3-bhk-apartment-renovation/image-1.jpg",
+      "url": "public/content/projects/3-bhk-apartment-renovation/image-1.jpg",
       "alt": "Image 1"
+    },
+    {
+      "url": "public/content/projects/3-bhk-apartment-renovation/image-2.jpg",
+      "alt": "Image 2"
     }
-  ]
+  ],
+  "heroImage": "public/content/projects/3-bhk-apartment-renovation/hero.jpg"
 }
