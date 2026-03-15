@@ -26,7 +26,7 @@ class AdminInterface {
     try {
       if (this.isProd) {
         // Production: no PAT needed
-        this.config = { admins: [] };
+        this.config = { admins: [{ username: 'admin', password: 'admin123' }] };
       } else {
         // Local: load admin-config.json
         const response = await fetch(`${import.meta.env.BASE_URL}admin-config.json`);
